@@ -3,7 +3,7 @@ h1
 {
 	text-align: center;
 	font-size: 25;
-	font-family: 'メイリオ'
+	font-family: 'メイリオ';
 }
 
 input
@@ -16,8 +16,8 @@ input
 	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
 	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
 
-	font-family: 'メイリオ'
-	margin-top: 5px;
+	font-family: 'メイリオ';
+	margin-top: 4px;
 }
 
 input:focus
