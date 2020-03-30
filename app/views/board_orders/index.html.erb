@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>最強のスタメン</h1>
+<%= render 'form', board_order: @board_order %>
+<p><%= link_to 'プロフィール設定', controller: :board_users %></p>
+<hr>
+<h2>Posted orders</h2>
+<table width="90%">
+  <thead>
+    <tr>
+      <!--<th>オーダー</th>-->
+      <!--<th>user</th>-->
+      <!--<th>Image</th>-->
+    </tr>
+    <hr>
+  </thead>
+
+  <tbody>
+    <% @board_orders.each do |board_order| %>
+      <tr>
+        <td align="center"><%= board_order.message %></td>
+        <!--<td><%=link_to board_order.board_user, controller: :board_users, action: :show, id:board_order.boarduser_id %></td>-->
+        <tr>
+        <td align="center"><%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %><hr></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div><%= paginate @board_orders %></div>
+<hr>
+<div>copyright YuyaOkayama 2020.</div>

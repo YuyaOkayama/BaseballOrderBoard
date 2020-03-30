@@ -1,0 +1,20 @@
+<h1>"<%=@board_user.nickname %>"</h1>
+<table>
+	<tr>
+	  <th>Nickname:</th>
+	  <td><%= @board_user.nickname %></td>
+	</tr>
+	<tr>
+	  <th>ID:</th>
+	  <td><%= @board_user.account_id %></td>
+	</tr>
+	<tr>
+	  <th>Biogrphy:</th>
+	  <td><%= @board_user.memo %></td>
+	</tr>
+</table>
+
+<hr>
+<%= link_to '<< Back', controller: :board_orders %>
+<hr>
+<div>copyright YuyaOkayama 2020.</div>

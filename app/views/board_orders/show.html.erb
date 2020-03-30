@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @board_order.message %>
+</p>
+
+<p>
+  <strong>Boarduser:</strong>
+  <%= @board_order.boarduser_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <!--<%= image_tag("/send_image/#{board_order.id}") %>-->
+  <%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %>
+</p>
+
+<%= link_to 'Edit', edit_board_order_path(@board_order) %> |
+<%= link_to 'Back', board_orders_path %>

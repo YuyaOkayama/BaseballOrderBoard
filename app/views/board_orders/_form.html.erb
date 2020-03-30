@@ -1,0 +1,884 @@
+<%= stylesheet_link_tag "css/style", :media => "all" %>
+
+<!DOCTYPE = html>
+<html lang = "ja">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://yuyaokayama.github.io/BaseballOrder/" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <meta charset=utf-8>  
+    <title>BaseballOrder</title>
+    <!--<h1 class='phone_head'>俺が考えた最強のスタメン</h1>-->
+    <h1 class='head'>俺が考えた最強のスタメン</h1>
+    <div class="ChangeElem_Btn_Content">
+          <button class="ChangeElem_Btn">野手編</button>
+          <button class="ChangeElem_Btn">投手編</button>
+          <!--<button class="ChangeElem_Btn">使い方</button>-->
+      </div>
+    
+      <style>
+        #canvas {
+          background: white;
+        }
+      </style>
+    </head>
+    <!--====================================================================
+          //野手//
+====================================================================-->
+    <div>
+      <div class="ChangeElem_Panel">
+        <div class='colorconf'>
+          <Hr Size="1">
+          <p class='title'>チーム</p>
+          <form id="color">
+            <td>
+              <select name="color" id="cvscolor">
+                <option value="white,black"> </option>
+                <option value="#FFFFFF,#F97709">巨人</option>
+                <option value="#000000,#FFE201">阪神</option>
+                <option value="#FFFFFF,#FF2B06">広島</option>
+                <option value="#FFFFFF,#002569">中日</option>
+                <option value="#FFFFFF,#0055A5">横浜</option>
+                <option value="#0F1350,#00AB5C">ヤクルト</option>
+                <option value="#000000,#F5C700">ソフトバンク</option>
+                <option value="#E2D69E,#000019">オリックス</option>
+                <option value="#FFFFFF,#4C7B98">日本ハム</option>
+                <option value="#FFFFFF,#221815">ロッテ</option>
+                <option value="#FFFFFF,#1F366A">西武</option>
+                <option value="#FFFFFF,#860010">楽天</option>
+              </select>
+            </td>
+          </form>
+        </div>
+        <div class='input'>
+        <tr>
+          <form class="form" name="form1" id="id_form1" action="">
+            <div>
+              <td align="left"><b> 1.</b></td>
+              <td><input type="text" id="batter_1" size="15" maxlength="20"></td>
+              <td><select id="position_1">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>
+            <br>
+            <div>
+              <td align="left"><b> 2.</b></td>
+              <td><input type="text" id="batter_2" size=15 maxlength="20"></td>
+              <td><select id="position_2">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>       
+            <br>
+            <div>
+              <td align="left"><b> 3.</b></td>  
+              <td><input type="text" id="batter_3" size="15" maxlength="20"></td>
+              <td><select id="position_3">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>       
+            <br>
+            <div>
+              <td align="left"><b> 4.</b></td>  
+              <td><input type="text" id="batter_4" size="15" maxlength="20"></td>
+              <td><select id="position_4">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>
+            <br>
+            <div>
+              <td align="left"><b> 5.</b></td>  
+              <td><input type="text" id="batter_5" size="15" maxlength="20"></td>
+              <td><select id="position_5">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>
+            <br>
+            <div>
+              <td align="left"><b> 6.</b></td>  
+              <td><input type="text" id="batter_6" size="15" maxlength="20"></td>
+              <td><select id="position_6">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>       
+            <br>
+            <div>
+              <td align="left"><b> 7.</b></td>  
+              <td><input type="text" id="batter_7" size="15" maxlength="20"></td>
+              <td><select id="position_7">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>       
+            <br>
+            <div>
+              <td align="left"><b> 8.</b></td>  
+              <td><input type="text" id="batter_8" size="15" maxlength="20"></td>
+              <td><select id="position_8">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>       
+            <br>
+            <div>
+              <td align="left"><b> 9.</b></td>  
+              <td><input type="text" id="batter_9" size="15" maxlength="20"></td>
+              <td><select id="position_9">
+                <option value="投">投</option>
+                <option value="捕">捕</option>
+                <option value="一">一</option>
+                <option value="二">二</option>          
+                <option value="三">三</option>
+                <option value="遊">遊</option>
+                <option value="左">左</option>
+                <option value="中">中</option>
+                <option value="右">右</option>
+                <option value="DH">DH</option>
+              </select>
+              </td>
+            </div>
+          </form>
+          <%= form_for(board_order) do |f| %>
+            <% if board_order.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(board_order.errors.count, "error") %> prohibited this board_order from being saved:</h2>
+
+                <ul>
+                <% board_order.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div style="margin :10px 0 0 0;">
+              <table>
+                <tr class="field">
+                  <th align="left"><%= f.label :memo %></th>
+                  <td align="left"><%= f.text_area :message, cols:40, rows:3 %></td>
+                </tr>
+
+                <tr class="field">
+                  <th align="left"><%= f.label :user %></th>
+                  <td align="left"><%=@board_user.nickname %><%=f.hidden_field :boarduser_id %></td>
+                </tr>
+
+                <tr class="field">
+                  <td><%= f.hidden_field :image, :value => '' %></td>
+                </tr>
+
+              </table>
+            </div>
+            <% end %>
+            <input type="button" value="プレビュー" onclick="onButtonClickPreview()" />
+            <input type="button" value="投稿" onclick="onButtonClickFielder()" />
+            <input type="button" value="保存" class="fielder_save_button" onclick="saveCanvas('jpeg');" style="margin: 10px 0 0 0;" />
+        </tr>
+        </div>
+        
+        <div class="img">
+          <img id="newImg">
+        </div>
+        <br>
+        
+        <canvas class="canvas" id="canvas" width="320" height="480"></canvas>
+<!--====================================================================
+          //野手//
+====================================================================-->
+        <script type="text/javascript">
+          $(function () {
+            /*初期表示*/
+            $('.ChangeElem_Panel').hide();
+            $('.ChangeElem_Panel').eq(0).show();
+            $('.ChangeElem_Btn').eq(0).addClass('is-active');
+            /*クリックイベント*/
+            $('.ChangeElem_Btn').each(function () {
+              $(this).on('click', function () {
+                var index = $('.ChangeElem_Btn').index(this);
+                $('.ChangeElem_Btn').removeClass('is-active');
+                $(this).addClass('is-active');
+                $('.ChangeElem_Panel').hide();
+                $('.ChangeElem_Panel').eq(index).show();
+              });
+            });
+          });
+
+          function onButtonClickPreview(){
+
+            fillCanvas();
+            var jpeg = canvas.toDataURL("image/jpeg");
+            document.getElementById("newImg").src = jpeg;
+            $('.fielder_save_button').css('display','block');
+          }
+
+          function fillCanvas(){
+            var cvs = document.getElementById("canvas");
+            var ctx = cvs.getContext("2d");
+            var num1 = "1."
+            var batter1 =document.forms.id_form1.batter_1.value;
+            var position1 = document.forms.id_form1.position_1.value;
+
+            var num2 = "2."
+            var batter2 =document.forms.id_form1.batter_2.value;
+            var position2 = document.forms.id_form1.position_2.value;
+
+            var num3 = "3."
+            var batter3 =document.forms.id_form1.batter_3.value;
+            var position3 = document.forms.id_form1.position_3.value
+
+            var num4 = "4."
+            var batter4 =document.forms.id_form1.batter_4.value;
+            var position4 = document.forms.id_form1.position_4.value;
+
+            var num5 = "5."
+            var batter5 =document.forms.id_form1.batter_5.value;
+            var position5 = document.forms.id_form1.position_5.value;
+
+            var num6 = "6."
+            var batter6 =document.forms.id_form1.batter_6.value;
+            var position6 = document.forms.id_form1.position_6.value;
+
+            var num7 = "7."
+            var batter7 =document.forms.id_form1.batter_7.value;
+            var position7 = document.forms.id_form1.position_7.value;
+
+            var num8 = "8."
+            var batter8 =document.forms.id_form1.batter_8.value;
+            var position8 = document.forms.id_form1.position_8.value;
+
+            var num9 = "9."
+            var batter9 =document.forms.id_form1.batter_9.value;
+            var position9 = document.forms.id_form1.position_9.value;
+
+            var element = document.getElementById("canvas"); //color
+            var radioNodeList = element.color;
+            console.log(document.forms);
+            var bc = document.forms.color.cvscolor.value.split(',')[1];
+            ctx.fillStyle = bc;//背景色
+            ctx.fillRect(0,0,320,480);//全体に反映
+            //枠線つくり
+             
+
+            var fs = document.forms.color.cvscolor.value.split(',')[0];
+            ctx.font = "40px Arial"; //フォントを指定
+            ctx.fillStyle = fs; //塗り潰し色
+            
+            ctx.fillText(num1,10,50,100);      //テキストを塗り潰しで描画
+            ctx.strokeText(num1,10,50,100)
+            ctx.fillText(position1,50,50,100);
+            ctx.strokeText(position1,50,50,100);
+            ctx.fillText(batter1,150,50,100);
+            ctx.strokeText(batter1,150,50,100);           
+
+            ctx.fillText(num2,10,100,100);      
+            ctx.strokeText(num2,10,100,100)
+            ctx.fillText(position2,50,100,100);
+            ctx.strokeText(position2,50,100,100);
+            ctx.fillText(batter2,150,100,100);
+            ctx.strokeText(batter2,150,100,100);
+
+            ctx.fillText(num3,10,150,100);      
+            ctx.strokeText(num3,10,150,100)
+            ctx.fillText(position3,50,150,100);
+            ctx.strokeText(position3,50,150,100);
+            ctx.fillText(batter3,150,150,100);
+            ctx.strokeText(batter3,150,150,100);
+
+            ctx.fillText(num4,10,200,100);      
+            ctx.strokeText(num4,10,200,100)
+            ctx.fillText(position4,50,200,100);
+            ctx.strokeText(position4,50,200,100);
+            ctx.fillText(batter4,150,200,100);
+            ctx.strokeText(batter4,150,200,100);
+
+            ctx.fillText(num5,10,250,100);      
+            ctx.strokeText(num5,10,250,100)
+            ctx.fillText(position5,50,250,100);
+            ctx.strokeText(position5,50,250,100);
+            ctx.fillText(batter5,150,250,100);
+            ctx.strokeText(batter5,150,250,100);
+
+            ctx.fillText(num6,10,300,100);      
+            ctx.strokeText(num6,10,300,100)
+            ctx.fillText(position6,50,300,100);
+            ctx.strokeText(position6,50,300,100);
+            ctx.fillText(batter6,150,300,100);
+            ctx.strokeText(batter6,150,300,100);
+
+            ctx.fillText(num7,10,350,100);     
+            ctx.strokeText(num7,10,350,100)
+            ctx.fillText(position7,50,350,100);
+            ctx.strokeText(position7,50,350,100);
+            ctx.fillText(batter7,150,350,100);
+            ctx.strokeText(batter7,150,350,100);
+
+            ctx.fillText(num8,10,400,100);    
+            ctx.strokeText(num8,10,400,100)
+            ctx.fillText(position8,50,400,100);
+            ctx.strokeText(position8,50,400,100);
+            ctx.fillText(batter8,150,400,100);
+            ctx.strokeText(batter8,150,400,100);
+
+            ctx.fillText(num9,10,450,100); 
+            ctx.strokeText(num9,10,450,100)
+            ctx.fillText(position9,50,450,100);
+            ctx.strokeText(position9,50,450,100);
+            ctx.fillText(batter9,150,450,100);
+            ctx.strokeText(batter9,150,450,100);
+          }
+
+          function onButtonClickFielder() {
+            fillCanvas();
+            
+            var jpeg = canvas.toDataURL("image/jpeg");
+            var formData = new FormData(document.forms.form);
+            var blob = Base64toBlob(jpeg);
+            console.log(URL.createObjectURL(blob));
+            formData.append("image", jpeg);
+            $('#board_order_image').val(formData.get('image').replace(/^.*,/, ''));
+            $("#new_board_order").submit();
+          }
+                  // canvas上のイメージを保存
+            function saveCanvas(saveType, cvs, jpeg){
+                
+                var fileName = "order.jpeg";
+                var base64 = canvas.toDataURL("image/jpeg");
+                // base64データをblobに変換
+                var blob = Base64toBlob(base64);
+                // blobデータをa要素を使ってダウンロード
+                saveBlob(blob, fileName);
+            }
+             
+            // Base64データをBlobデータに変換
+            function Base64toBlob(base64)
+            {
+                
+                var tmp = base64.split(',');
+                // base64データの文字列をデコード
+                var data = atob(tmp[1]);
+                // tmp[0]の文字列（data:image/png;base64）からコンテンツタイプ（image/png）部分を取得
+                var mime = tmp[0].split(':')[1].split(';')[0];
+                //  1文字ごとにUTF-16コードを表す 0から65535 の整数を取得
+                var buf = new Uint8Array(data.length);
+                for (var i = 0; i < data.length; i++) {
+                    buf[i] = data.charCodeAt(i);
+                }
+                // blobデータを作成
+                var blob = new Blob([buf], { type: mime });
+                  console.log(blob);
+                  return blob;
+            }
+             
+            // 画像のダウンロード
+            function saveBlob(blob, fileName)
+            {
+                var url = (window.URL || window.webkitURL);
+                // ダウンロード用のURL作成
+                var dataUrl = url.createObjectURL(blob);
+                // イベント作成
+                var event = document.createEvent("MouseEvents");
+                event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                // a要素を作成
+                var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+                // ダウンロード用のURLセット
+                a.href = dataUrl;
+                // ファイル名セット
+                a.download = fileName;
+                // イベントの発火
+                a.dispatchEvent(event);
+            }
+
+        </script>
+      </div>
+      <!--====================================================================
+          //投手//
+====================================================================-->
+      <div class="ChangeElem_Panel">
+        <div class='colorconf'>
+          <Hr Size="1">
+          <p class='title'>チーム</p>
+          <form id="colorPitch">
+            <td>
+              <select name="colorPitch" id="cvscolorPitch">
+                <option value="white,black"> </option>
+                <option value="#FFFFFF,#F97709">巨人</option>
+                <option value="#000000,#FFE201">阪神</option>
+                <option value="#FFFFFF,#FF2B06">広島</option>
+                <option value="#FFFFFF,#002569">中日</option>
+                <option value="#FFFFFF,#0055A5">横浜</optioon>
+                <option value="#0F1350,#00AB5C">ヤクルト</option>
+                <option value="#000000,#F5C700">ソフトバンク</option>
+                <option value="#E2D69E,#000019">オリックス</option>
+                <option value="#FFFFFF,#4C7B98">日本ハム</option>
+                <option value="#FFFFFF,#221815"> ロッテ</option>
+                <option value="#FFFFFF,#1F366A"> 西武</option>
+                <option value="#FFFFFF,#860010"> 楽天</option>
+              </select>
+            </td>
+          </form>
+        </div>
+        <tr>
+        <div class='input'>
+          <form class="form" name="form2" id="id_form2" action="">
+          ローテーション
+          <br>
+          <div>
+            <td align="left"><b> 1.</b></td>
+            <td><input type="text" name="1" id="starter_1" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_1">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 2.</b></td>
+            <td><input type="text" name="2" id="starter_2" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_2">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 3.</b></td>
+            <td><input type="text" name="3" id="starter_3" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_3">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 4.</b></td>
+            <td><input type="text" name="4" id="starter_4" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_4">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 5.</b></td>
+            <td><input type="text" name="5" id="starter_5" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_5">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 6.</b></td>
+            <td><input type="text" name="6" id="starter_6" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_6">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+          </td>
+          <br><br>
+          勝ち継投
+          <br>
+            <td align="left"><b> 7回.</b></td>
+            <td><input type="text" name="7" id="reliever_1" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_7">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 8回.</b></td>
+            <td><input type="text" name="8" id="reliever_2" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_8">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          </div>
+          <br>
+          <div>
+            <td align="left"><b> 9回.</b></td>
+            <td><input type="text" name="9" id="reliever_3" size="15" maxlength="20"></td>
+            <td><select name="hand" id="hand_9">
+              <option value=""></option>
+              <option value="右">右</option>
+              <option value="左">左</option>
+            </select>
+            </td>
+          <div>
+          </form>
+        </div>
+        <%= form_for(board_order) do |f| %>
+            <% if board_order.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(board_order.errors.count, "error") %> prohibited this board_order from being saved:</h2>
+
+                <ul>
+                <% board_order.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div style="margin :10px 0 0 0;">
+              <table>
+                <tr class="field">
+                  <th align="left"><%= f.label :memo %></th>
+                  <td align="left"><%= f.text_area :message, cols:40, rows:3 %></td>
+                </tr>
+
+                <tr class="field">
+                  <th align="left"><%= f.label :user %></th>
+                  <td align="left"><%=@board_user.nickname %><%=f.hidden_field :boarduser_id %></td>
+                </tr>
+
+                <tr class="field">
+                  <td><%= f.hidden_field :image, :value => '' %></td>
+                </tr>
+
+              </table>
+            </div>
+            <% end %>
+            <input type="button" value="プレビュー" onclick="onButtonClickPreviewPitcher();" />
+            <input type="button" value="作成" onclick="onButtonClickPitcher();" />
+
+            <input type="button" value="保存" onclick="saveCanvasPitcher('jpeg');" class="pitcher_save_button" style="margin: 10px 0 0 0;" />
+            </tr>
+          </div>
+
+        <div class="img2">
+          <img id="newImg2">
+        </div>
+        <canvas class="canvas2" id="canvas2" width="320" height="480"></canvas>
+<!--====================================================================
+          //投手//
+====================================================================-->
+        <script type="text/javascript">
+          $(function () {
+            /*初期表示*/
+            $('.ChangeElem_Panel').hide();
+            $('.ChangeElem_Panel').eq(0).show();
+            $('.ChangeElem_Btn').eq(0).addClass('is-active');
+            /*クリックイベント*/
+            $('.ChangeElem_Btn').each(function () {
+              $(this).on('click', function () {
+                var index = $('.ChangeElem_Btn').index(this);
+                $('.ChangeElem_Btn').removeClass('is-active');
+                $(this).addClass('is-active');
+                $('.ChangeElem_Panel').hide();
+                $('.ChangeElem_Panel').eq(index).show();
+              });
+            });
+          });
+
+          function fillCanvasPitcher(){
+             var cvs2 = document.getElementById("canvas2");
+            var ctx2 = cvs2.getContext("2d");
+
+            var num1 = "1."
+            var starter1 =document.forms.id_form2.starter_1.value;
+            var hand1 = document.forms.id_form2.hand_1.value;
+
+            var num2 = "2."
+            var starter2 =document.forms.id_form2.starter_2.value;
+            var hand2 = document.forms.id_form2.hand_2.value;
+
+            var num3 = "3."
+            var starter3 =document.forms.id_form2.starter_3.value;
+            var hand3 = document.forms.id_form2.hand_3.value;
+
+            var num4 = "4."
+            var starter4 =document.forms.id_form2.starter_4.value;
+            var hand4 = document.forms.id_form2.hand_4.value;
+
+            var num5 = "5."
+            var starter5 =document.forms.id_form2.starter_5.value;
+            var hand5 = document.forms.id_form2.hand_5.value;
+
+            var num6 = "6."
+            var starter6 =document.forms.id_form2.starter_6.value;
+            var hand6 = document.forms.id_form2.hand_6.value;
+
+            var innings7 = "7回"
+            var reliever1 =document.forms.id_form2.reliever_1.value;
+            var hand7 = document.forms.id_form2.hand_7.value;
+
+            var innings8 = "8回"
+            var reliever2 =document.forms.id_form2.reliever_2.value;
+            var hand8 = document.forms.id_form2.hand_8.value;
+
+            var innings9 = "9回"
+            var reliever3 =document.forms.id_form2.reliever_3.value;
+            var hand9 = document.forms.id_form2.hand_9.value;     
+
+            var element = document.getElementById( "colorPitch" ) ;
+            var radioNodeList = element.color;
+            var bc = document.forms.colorPitch.cvscolorPitch.value.split(',')[1];
+            ctx2.fillStyle = bc;//背景色
+            ctx2.fillRect(0,0,320,480);//全体に反映
+
+            var fs = document.forms.colorPitch.cvscolorPitch.value.split(',')[0];
+            ctx2.font = "40px Arial"; //フォントを指定
+            ctx2.fillStyle = fs; //塗り潰し色
+
+            ctx2.fillText(num1,10,50,100);
+            ctx2.strokeText(num1,10,50,100);
+            ctx2.fillText(starter1,100,50,100);
+            ctx2.strokeText(starter1,100,50,100);
+            ctx2.fillText(hand1,260,50,100);
+            ctx2.strokeText(hand1,260,50,100);
+
+            ctx2.fillText(num2,10,100,100);
+            ctx2.strokeText(num2,10,100,100);
+            ctx2.fillText(starter2,100,100,100);
+            ctx2.strokeText(starter2,100,100,100);
+            ctx2.fillText(hand2,260,100,100);
+            ctx2.strokeText(hand2,260,100,100);
+
+            ctx2.fillText(num3,10,150,100);
+            ctx2.strokeText(num3,10,150,100);
+            ctx2.fillText(starter3,100,150,100);
+            ctx2.strokeText(starter3,100,150,100);
+            ctx2.fillText(hand3,260,150,100);
+            ctx2.strokeText(hand3,260,150,100);
+
+            ctx2.fillText(num4,10,200,100);
+            ctx2.strokeText(num4,10,200,100);
+            ctx2.fillText(starter4,100,200,100);
+            ctx2.strokeText(starter4,100,200,100);
+            ctx2.fillText(hand4,260,200,100);
+            ctx2.strokeText(hand4,260,200,100);
+
+            ctx2.fillText(num5,10,250,100);
+            ctx2.strokeText(num5,10,250,100);
+            ctx2.fillText(starter5,100,250,100);
+            ctx2.strokeText(starter5,100,250,100);
+            ctx2.fillText(hand5,260,250,100);
+            ctx2.strokeText(hand5,260,250,100);
+
+            ctx2.fillText(num6,10,300,100);
+            ctx2.strokeText(num6,10,300,100);
+            ctx2.fillText(starter6,100,300,100);
+            ctx2.strokeText(starter6,100,300,100);
+            ctx2.fillText(hand6,260,300,100);
+            ctx2.strokeText(hand6,260,300,100);
+
+            ctx2.fillText(innings7,10,350,100);
+            ctx2.strokeText(innings7,10,350,100);
+            ctx2.fillText(reliever1,100,350,100);
+            ctx2.strokeText(reliever1,100,350,100);
+            ctx2.fillText(hand7,260,350,100);
+            ctx2.strokeText(hand7,260,350,100);
+
+            ctx2.fillText(innings8,10,400,100);
+            ctx2.strokeText(innings8,10,400,100);
+            ctx2.fillText(reliever2,100,400,100);
+            ctx2.strokeText(reliever2,100,400,100);
+            ctx2.fillText(hand8,260,400,100);
+            ctx2.strokeText(hand8,260,400,100);
+
+            ctx2.fillText(innings9,10,450,100);
+            ctx2.strokeText(innings9,10,450,100);
+            ctx2.fillText(reliever3,100,450,100);
+            ctx2.strokeText(reliever3,100,450,100);
+            ctx2.fillText(hand9,260,450,100);
+            ctx2.strokeText(hand9,260,450,100);
+          }
+
+          function onButtonClickPreviewPitcher(){
+            fillCanvasPitcher();
+            var jpeg2 = canvas2.toDataURL("image/jpeg");
+            document.getElementById("newImg2").src = jpeg2;
+            $('.pitcher_save_button').css('display','block');
+          }
+
+          function onButtonClickPitcher() {
+
+            fillCanvasPitcher();
+            
+            var jpeg2 = canvas2.toDataURL("image/jpeg");
+            var formData = new FormData(document.forms.form);
+            //var blob = Base64toBlob(jpeg2);
+            //console.log(URL.createObjectURL(blob));
+            formData.append("image", jpeg2);
+            $('#board_order_image').val(formData.get('image').replace(/^.*,/, ''));
+            $("#new_board_order").submit();
+          }
+
+                // canvas上のイメージを保存
+            function saveCanvasPitcher(saveType, cvs, jpeg){
+                
+                var fileName = "order.jpeg";
+                var base64 = canvas2.toDataURL("image/jpeg");
+                // base64データをblobに変換
+                var blob = Base64toBlob(base64);
+                // blobデータをa要素を使ってダウンロード
+                saveBlob(blob, fileName);
+            }
+             
+            // Base64データをBlobデータに変換
+            function Base64toBlob(base64)
+            {
+                // カンマで分割して以下のようにデータを分ける
+                // tmp[0] : データ形式（data:image/png;base64）
+                // tmp[1] : base64データ（iVBORw0k～）
+                var tmp = base64.split(',');
+                // base64データの文字列をデコード
+                var data = atob(tmp[1]);
+                // tmp[0]の文字列（data:image/png;base64）からコンテンツタイプ（image/png）部分を取得
+              var mime = tmp[0].split(':')[1].split(';')[0];
+                //  1文字ごとにUTF-16コードを表す 0から65535 の整数を取得
+              var buf = new Uint8Array(data.length);
+              for (var i = 0; i < data.length; i++) {
+                    buf[i] = data.charCodeAt(i);
+                }
+                // blobデータを作成
+              var blob = new Blob([buf], { type: mime });
+                return blob;
+            }
+             
+            // 画像のダウンロード
+            function saveBlob(blob, fileName)
+            {
+                var url = (window.URL || window.webkitURL);
+                // ダウンロード用のURL作成
+                var dataUrl = url.createObjectURL(blob);
+                // イベント作成
+                var event = document.createEvent("MouseEvents");
+                event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                // a要素を作成
+                var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+                // ダウンロード用のURLセット
+                a.href = dataUrl;
+                // ファイル名セット
+                a.download = fileName;
+                // イベントの発火
+                a.dispatchEvent(event);
+            }
+          </script>
+        </div>
+        <div class="ChangeElem_Panel">
+          <script type="text/javascript">
+          $(function () {
+            /*初期表示*/
+            $('.ChangeElem_Panel').hide();
+            $('.ChangeElem_Panel').eq(0).show();
+            $('.ChangeElem_Btn').eq(0).addClass('is-active');
+            /*クリックイベント*/
+            $('.ChangeElem_Btn').each(function () {
+              $(this).on('click', function () {
+                var index = $('.ChangeElem_Btn').index(this);
+                $('.ChangeElem_Btn').removeClass('is-active');
+                $(this).addClass('is-active');
+                $('.ChangeElem_Panel').hide();
+                $('.ChangeElem_Panel').eq(index).show();
+              });
+            });
+          });
+        </script>
+            <div>
+            <br>
+            <Hr Size="1">
+            <p>
+              自分の考える野球のオーダーや起用法を画像にして保存していただけます。
+              <br><br>
+              チームを選択していただくと、背景色と文字色が各チームをイメージしたものになります。
+              <br><br>
+              SNSなどでの共有にご活用ください。
+            </p>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

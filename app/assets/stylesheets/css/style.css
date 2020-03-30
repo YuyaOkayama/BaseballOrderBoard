@@ -1,0 +1,192 @@
+
+h1
+{
+	text-align: center;
+	font-size: 25;
+	font-family: 'メイリオ'
+}
+
+input
+{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+
+	font-family: 'メイリオ'
+	margin-top: 5px;
+}
+
+input:focus
+{
+    border:solid 1px #EEA34A;
+}
+
+
+select
+{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+
+	font-family: 'メイリオ'
+}
+
+button
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#aaa));
+	background-image: -webkit-linear-gradient(top, #ddd, #aaa);
+	background-image: -moz-linear-gradient(top, #ddd, #aaa);
+	background-image: -ms-linear-gradient(top, #ddd, #aaa);
+	background-image: -o-linear-gradient(top, #ddd, #aaa);
+	background-image: linear-gradient(top, #ddd, #aaa);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd', endColorstr='#aaa',GradientType=0 );
+
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-shadow: 0px -1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.title
+{
+	font-weight: bold; 
+}
+
+.colorconf
+{
+	border-bottom: solid 1px gray;
+	clear: left;
+}
+
+.input
+{
+	padding-top: 10px;
+}
+
+canvas
+{
+	display: none;
+}
+
+.phone_head
+{
+	display: block;
+}
+
+.head
+{
+	display: none;
+}
+
+.pitcher_save_button
+{
+	display: none;
+}
+
+.fielder_save_button
+{
+	display: none;
+}
+
+nav>  li {
+	list-style: none;
+	float:left;
+	padding:10px 10px;
+	color:#ffffff;
+}
+
+
+
+.foot_use
+{
+	position: absolute;
+	bottom: 0;
+}
+
+/*タブの中身を初期非表示に*/
+.ChangeElem_Panel {
+  display: none;
+}
+/*タブを横並べに*/
+.ChangeElem_Btn_Content {
+  display: flex;
+  justify-content: space-around;
+}
+/*通常時のタブ装飾*/
+.ChangeElem_Btn {
+  border: 2px solid #ccc;
+  background-color: lightblue;
+  border-radius: 10px;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  flex: 1;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  transition: all .3s ease-in-out;
+  vertical-align: middle;
+}
+*/
+/*カレントとホバー時のタブ装飾*/
+/*
+.ChangeElem_Btn:hover,
+.ChangeElem_Btn.is-active {
+  background: #fcf7f1;
+  border: 2px solid #fcbc82;
+  box-sizing: border-box;
+  color: #333;
+}
+
+@media screen and (min-width: 600px) {
+.phone_head{
+	display: none;
+	float: left;
+}
+.head
+{
+	display: block;
+}
+.form{
+		float: left;
+		padding-right: 20px;
+		font-size: none;
+	}
+.pitcher_save_button
+{
+	float: left;
+	position: absolute;
+	bottom: 0px;
+	right: -50px;
+}
+
+.fielder_save_button
+{
+	float: left;
+	position: absolute;
+	bottom: 0px;
+	right: -50px;
+}
+
+.img
+{
+	float: left;
+	position: relative;
+}
+footer
+	{
+	clear: left;
+	}
+}
