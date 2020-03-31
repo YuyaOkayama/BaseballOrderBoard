@@ -9,13 +9,13 @@ class BoardOrdersController < ApplicationController
   # GET /board_orders.json
   def index
     @board_orders = BoardOrder.page(params[:page]).order('created_at desc')
-    users = BoardUser.where 'account_id == ?', current_account.id
+    users = BoardUser.where 'account_id = ?', current_account.id
     if users[0] == nil then
       user = BoardUser.new
       user.account_id = current_account.id
       user.nickname = '<<no name>>'
       user.save
-      users = BoardUser.where 'account_id == ?', current_account.id
+      users = BoardUser.where 'account_id = ?', current_account.id
     end
     @board_user = users[0]
     @board_order = BoardOrder.new
