@@ -44,7 +44,7 @@ class BoardOrdersController < ApplicationController
     @board_orders = BoardOrder.page(params[:page]).order('created_at desc')
     @board_order = BoardOrder.new(board_order_params)
     @board_order.image = params['board_order']['image']
-    @board_user = BoardUser.where('account_id == ?',current_account.id)[0]
+    @board_user = BoardUser.where('account_id = ?',current_account.id)[0]
 
     respond_to do |format|
       if @board_order.save
