@@ -9,4 +9,9 @@ Rails.application.routes.draw do
       get 'send_image'
     end
   end
+
+  resources :board_orders do
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
+  end
 end
