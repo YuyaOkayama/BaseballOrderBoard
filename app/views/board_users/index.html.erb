@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User Home</h1>
-<h2>※<%=@board_user.account.email %>さんの設定</h2>
+<h1>ユーザー</h1>
+<h2>※<%=@board_user.account.email %>さんのプロフィール</h2>
 <%= render 'form', board_user: @board_user %>
 <hr>
 <p><%=link_to '<< 戻る', controller: :board_orders %></p>

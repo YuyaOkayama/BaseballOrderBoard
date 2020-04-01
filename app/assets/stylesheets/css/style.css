@@ -140,3 +140,9 @@ nav>  li {
   vertical-align: middle;
 }
 
+.ChangeElem_Btn.is-active {
+  background: #fcf7f1;
+  border: 2px solid #fcbc82;
+  box-sizing: border-box;
+  color: #333;
+}
