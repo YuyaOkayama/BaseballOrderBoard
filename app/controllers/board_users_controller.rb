@@ -15,6 +15,7 @@ class BoardUsersController < ApplicationController
       users = BoardUser.where 'account_id = ?', current_account.id
     end
     @board_user = users[0]
+    @board_orders = BoardOrder.all
   end
 
   # GET /board_users/1

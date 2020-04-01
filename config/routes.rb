@@ -14,4 +14,10 @@ Rails.application.routes.draw do
     post 'add' => 'favorites#create'
     delete '/add' => 'favorites#destroy'
   end
+
+  resources :board_users do
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
+  end
+
 end

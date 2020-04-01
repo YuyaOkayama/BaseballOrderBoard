@@ -4,7 +4,35 @@
 <h2>※<%=@board_user.account.email %>さんの設定</h2>
 <%= render 'form', board_user: @board_user %>
 <hr>
-<p><%=link_to '<< go back', controller: :board_orders %></p>
+<p><%=link_to '<< 戻る', controller: :board_orders %></p>
+<hr>
+<h2>Favorite orders</h2>
+<table width="90%">
+  <tbody>
+    <% @board_orders.each do |board_order| %>
+      <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+      	<% next %>
+      <% end %>
+      <tr>
+        <td align="center"><%= board_order.message %></td>
+        <!--<td><%=link_to board_order.board_user, controller: :board_users, action: :show, id:board_order.boarduser_id %></td>-->
+        <tr>
+          <td align="center"><%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %><hr></td>
+         <!--
+        <tr>
+          <td align="center">
+            <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+              <%= link_to "☆",board_order_add_path(board_order),method: :post %>
+            <% else %>
+              <%= link_to "★",board_order_add_path(board_order),method: :delete %>
+            <% end %>
+          <hr>  
+          </td>
+        </tr>-->
+    <% end %>
+  </tbody>
+</table>
+
 
 <hr>
 <div>copyright YuyaOkayama 2020.</div>
