@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "css/style", :media => "all" %>
+<!--<%= stylesheet_link_tag "css/style", :media => "all" %>-->
 
 <!DOCTYPE = html>
 <html lang = "ja">
@@ -10,10 +10,10 @@
     <meta charset=utf-8>  
     <title>BaseballOrder</title>
     <!--<h1 class='phone_head'>俺が考えた最強のスタメン</h1>-->
-    <h1 class='head'>俺が考えた最強のスタメン</h1>
+    <!--<h1 class='head'>俺が考えた最強のスタメン</h1>-->
       <div class="ChangeElem_Btn_Content">
-          <button class="ChangeElem_Btn">野手編</button>
-          <button class="ChangeElem_Btn">投手編</button>
+          <button type="button" class="ChangeElem_Btn">野手編</button>
+          <button type="button" class="ChangeElem_Btn">投手編</button>
           <!--<button class="ChangeElem_Btn">お気に入り</button>-->
       </div>
     
@@ -250,9 +250,9 @@
               </table>
             </div>
             <% end %>
-            <input type="button" value="プレビュー" onclick="onButtonClickPreview()" />
-            <input type="button" value="投稿" onclick="onButtonClickFielder()" />
-            <input type="button" value="保存" class="fielder_save_button" onclick="saveCanvas('jpeg');" style="margin: 10px 0 0 0;" />
+            <input type="button" value="プレビュー" onclick="onButtonClickPreview()" class="btn btn-primary" />
+            <input type="button" value="投稿" onclick="onButtonClickFielder()"  class="btn btn-primary" />
+            <input type="button" value="保存" id="fielder_save_button" onclick="saveCanvas('jpeg');"  class="btn btn-primary" style="margin: 10px 0 0 0;" />
         </tr>
         </div>
         
@@ -288,7 +288,7 @@
             fillCanvas();
             var jpeg = canvas.toDataURL("image/jpeg");
             document.getElementById("newImg").src = jpeg;
-            $('.fielder_save_button').css('display','block');
+            $('#fielder_save_button').css('display','block');
           }
 
           function fillCanvas(){
@@ -633,10 +633,10 @@
               </table>
             </div>
             <% end %>
-            <input type="button" value="プレビュー" onclick="onButtonClickPreviewPitcher();" />
-            <input type="button" value="作成" onclick="onButtonClickPitcher();" />
+            <input type="button" value="プレビュー" onclick="onButtonClickPreviewPitcher()" class="btn btn-primary" />
+            <input type="button" value="作成" onclick="onButtonClickPitcher()" class="btn btn-primary" />
 
-            <input type="button" value="保存" onclick="saveCanvasPitcher('jpeg');" class="pitcher_save_button" style="margin: 10px 0 0 0;" />
+            <input type="button" value="保存" onclick="saveCanvasPitcher('jpeg');" id="pitcher_save_button" class="btn btn-primary" style="margin: 10px 0 0 0;" />
             </tr>
           </div>
 
@@ -783,7 +783,7 @@
             fillCanvasPitcher();
             var jpeg2 = canvas2.toDataURL("image/jpeg");
             document.getElementById("newImg2").src = jpeg2;
-            $('.pitcher_save_button').css('display','block');
+            $('#pitcher_save_button').css('display','block');
           }
 
           function onButtonClickPitcher() {

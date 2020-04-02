@@ -2,3 +2,90 @@
 @import "bootstrap";
 
 .jumbotron { background:url(/images/DSC00656.JPG) center no-repeat; background-size: cover;}
+
+input
+{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+
+	font-family: 'メイリオ';
+	margin-top: 5px;
+}
+
+select
+{
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	-moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+
+	font-family: 'メイリオ'
+}
+
+.input
+{
+	padding-top: 10px;
+}
+
+canvas
+{
+	display: none;
+}
+
+#pitcher_save_button
+{
+	display: none;
+}
+
+#fielder_save_button
+{
+	display: none;
+}
+
+.ChangeElem_Btn_Content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ChangeElem_Btn {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  flex: 1;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  transition: all .3s ease-in-out;
+  vertical-align: middle;
+}
+
+.ChangeElem_Btn {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  flex: 1;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  transition: all .3s ease-in-out;
+  vertical-align: middle;
+}
+
+.ChangeElem_Btn.is-active {
+  background: lightblue;
+  box-sizing: border-box;
+}

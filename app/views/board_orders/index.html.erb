@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>俺が考えた最強のスタメン</h1>
+<h1 align="center">俺が考えた最強のスタメン</h1>
 <%= render 'form', board_order: @board_order %>
 <p><%= link_to 'マイページ', controller: :board_users %></p>
 <hr>
@@ -28,6 +28,9 @@
           <td align="center">
             <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
               <%= link_to "☆",board_order_add_path(board_order),method: :post %>
+              <!--<%= link_to board_order_add_path(board_order),method: :post do %>
+                <%= image_tag "/images/nofavo.png" %>
+              <% end %>-->
             <% else %>
               <%= link_to "★",board_order_add_path(board_order),method: :delete %>
             <% end %>
