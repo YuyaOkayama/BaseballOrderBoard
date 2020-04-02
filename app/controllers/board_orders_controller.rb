@@ -82,7 +82,7 @@ class BoardOrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def board_order_params
-    params.require(:board_order).permit(:message, :boarduser_id, :image)
+    params.require(:board_order).permit(:message, :boarduser_id, :image, :category_code)
   end
 end
 

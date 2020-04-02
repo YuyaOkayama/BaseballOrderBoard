@@ -6,15 +6,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://baseball-order-board.herokuapp.com/" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <meta charset=utf-8>  
     <title>BaseballOrder</title>
-    <!--<h1 class='phone_head'>俺が考えた最強のスタメン</h1>-->
-    <!--<h1 class='head'>俺が考えた最強のスタメン</h1>-->
+    <h1 class='phone_head' align="center">俺が考えた最強のスタメン</h1>
+    <h1 class='head' align="center">俺が考えた最強のスタメン</h1>
+    <br>
       <div class="ChangeElem_Btn_Content">
           <button type="button" class="ChangeElem_Btn">野手編</button>
           <button type="button" class="ChangeElem_Btn">投手編</button>
-          <!--<button class="ChangeElem_Btn">お気に入り</button>-->
+          <button type="button" class="ChangeElem_Btn">お気に入り</button>
       </div>
     
       <style>
@@ -247,6 +247,10 @@
                   <td><%= f.hidden_field :image, :value => '' %></td>
                 </tr>
 
+                <tr class="field">
+                  <td><%= f.hidden_field :category_code, :value => '' %></td>
+                </tr>
+
               </table>
             </div>
             <% end %>
@@ -262,6 +266,39 @@
         <br>
         
         <canvas class="canvas" id="canvas" width="320" height="480"></canvas>
+
+        <p><%= link_to 'マイページ', controller: :board_users %></p>
+        <hr>
+        <h2>Posted orders</h2>
+        <table width="90%">
+          <thead>
+            <tr>
+            </tr>
+            <hr>
+          </thead>
+
+          <tbody>
+            <% @board_orders.each do |board_order| %>
+              <% if board_order.category_code != 1 %>
+                <% next %>
+              <% end %>
+              <tr>
+                <td align="center"><%= board_order.message %></td>
+                <tr>
+                  <td align="center"><%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %></td>
+                  <tr>
+                  <td align="center">
+                    <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+                      <%= link_to "☆",board_order_add_path(board_order),method: :post %>
+                    <% else %>
+                      <%= link_to "★",board_order_add_path(board_order),method: :delete %>
+                    <% end %>
+                  <hr>  
+                  </td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
 <!--====================================================================
           //野手//
 ====================================================================-->
@@ -409,7 +446,7 @@
 
           function onButtonClickFielder() {
             fillCanvas();
-            
+            $('#board_order_category_code').val(1);
             var jpeg = canvas.toDataURL("image/jpeg");
             var formData = new FormData(document.forms.form);
             var blob = Base64toBlob(jpeg);
@@ -599,7 +636,6 @@
               <option value="左">左</option>
             </select>
             </td>
-          <div>
           </form>
         </div>
         <%= form_for(board_order) do |f| %>
@@ -630,6 +666,10 @@
                   <td><%= f.hidden_field :image, :value => '' %></td>
                 </tr>
 
+                <tr class="field">
+                  <td><%= f.hidden_field :category_code, :value => '' %></td>
+                </tr>
+
               </table>
             </div>
             <% end %>
@@ -638,12 +678,45 @@
 
             <input type="button" value="保存" onclick="saveCanvasPitcher('jpeg');" id="pitcher_save_button" class="btn btn-primary" style="margin: 10px 0 0 0;" />
             </tr>
-          </div>
+        </div>
 
         <div class="img2">
           <img id="newImg2">
         </div>
         <canvas class="canvas2" id="canvas2" width="320" height="480"></canvas>
+
+        <p><%= link_to 'マイページ', controller: :board_users %></p>
+        <hr>
+        <h2>Posted orders</h2>
+        <table width="90%">
+          <thead>
+            <tr>
+            </tr>
+            <hr>
+          </thead>
+
+          <tbody>
+            <% @board_orders.each do |board_order| %>
+              <% if board_order.category_code != 2 %>
+                <% next %>
+              <% end %>
+              <tr>
+                <td align="center"><%= board_order.message %></td>
+                <tr>
+                  <td align="center"><%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %></td>
+                  <tr>
+                  <td align="center">
+                    <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+                      <%= link_to "☆",board_order_add_path(board_order),method: :post %>
+                    <% else %>
+                      <%= link_to "★",board_order_add_path(board_order),method: :delete %>
+                    <% end %>
+                  <hr>  
+                  </td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
 <!--====================================================================
           //投手//
 ====================================================================-->
@@ -789,7 +862,7 @@
           function onButtonClickPitcher() {
 
             fillCanvasPitcher();
-            
+            $('#board_order_category_code').val(2);
             var jpeg2 = canvas2.toDataURL("image/jpeg");
             var formData = new FormData(document.forms.form);
             //var blob = Base64toBlob(jpeg2);
@@ -851,8 +924,43 @@
             }
           </script>
         </div>
-        <!--
+        
         <div class="ChangeElem_Panel">
+          <div>
+            <tr>
+            <p><%= link_to 'マイページ', controller: :board_users, class:'btn btn-primary' %></p>
+            <hr>
+            <h2>お気に入り</h2>
+            <table width="90%">
+              <thead>
+                <tr>
+                </tr>
+                <hr>
+              </thead>
+
+              <tbody>
+                <% @board_orders.each do |board_order| %>
+                  <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+                    <% next %>
+                  <% end %>
+                  <tr>
+                    <td align="center"><%= board_order.message %></td>
+                    <tr>
+                      <td align="center"><%= image_tag(url_for(:controller => 'board_orders', :action => 'send_image', :id => board_order.id), :size => '200x340') %></td>
+                      <tr>
+                      <td align="center">
+                        <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+                          <%= link_to "☆",board_order_add_path(board_order),method: :post %>
+                        <% else %>
+                          <%= link_to "★",board_order_add_path(board_order),method: :delete %>
+                        <% end %>
+                      <hr>  
+                      </td>
+                    </tr>
+                <% end %>
+              </tbody>
+            </table>  
+          </div>
           <script type="text/javascript">
           $(function () {
             /*初期表示*/
@@ -870,20 +978,10 @@
               });
             });
           });
-        </script>
-            <div>
-            <br>
-            <Hr Size="1">
-            <p>
-              自分の考える野球のオーダーや起用法を画像にして保存していただけます。
-              <br><br>
-              チームを選択していただくと、背景色と文字色が各チームをイメージしたものになります。
-              <br><br>
-              SNSなどでの共有にご活用ください。
-            </p>
-          </div>
+          </script>
+
         </div>
-        -->
+        
     </div>
   </body>
 </html>
