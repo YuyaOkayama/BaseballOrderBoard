@@ -126,7 +126,7 @@ nav>  li {
 /*通常時のタブ装飾*/
 .ChangeElem_Btn {
   border: 2px solid #ccc;
-  background-color: lightblue;
+  /*background-color: lightblue;*/
   border-radius: 10px;
   color: #666;
   cursor: pointer;
@@ -141,8 +141,8 @@ nav>  li {
 }
 
 .ChangeElem_Btn.is-active {
-  background: #fcf7f1;
-  border: 2px solid #fcbc82;
+  background: lightblue;
+  /*border: 2px solid #fcbc82;*/
   box-sizing: border-box;
-  color: #333;
+  /*color: #333;*/
 }

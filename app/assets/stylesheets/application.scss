@@ -1,0 +1,4 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+.jumbotron { background:url(/images/stadium.jpg) center no-repeat; background-size: cover;}
