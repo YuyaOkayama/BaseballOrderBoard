@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ユーザー</h1>
-<h2>※<%=@board_user.account.email %>さんのプロフィール</h2>
+<h1 align="center">マイページ</h1>
+<h2>プロフィール</h2>
 <%= render 'form', board_user: @board_user %>
 <hr>
 <p><%=link_to '<< 戻る', controller: :board_orders %></p>
 <hr>
 <h2>Favorite orders</h2>
+<hr>
 <table width="90%">
   <tbody>
     <% @board_orders.each do |board_order| %>
