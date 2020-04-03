@@ -6,12 +6,16 @@
 <hr>
 <p><%=link_to '<< 戻る', controller: :board_orders %></p>
 <hr>
-<h2>Favorite orders</h2>
+<h2>My orders</h2>
 <hr>
 <table width="90%">
   <tbody>
     <% @board_orders.each do |board_order| %>
-      <% if !Favorite.exists?(board_user_id:current_account.id,board_order_id:board_order.id) %>
+      <%puts "=======boarduser_id==========="%>
+      <% p board_order.boarduser_id %>
+      <% p current_account.id %>
+      <%puts "========account.id=========="%>
+      <% if board_order.boarduser_id != current_account.id %>
       	<% next %>
       <% end %>
       <tr>

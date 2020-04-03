@@ -219,6 +219,13 @@
               </td>
             </div>
           </form>
+          <br>
+          
+          <div class="form-group">
+            <label for="text1">Text:</label>
+            <input type="text" id="messageH" class="form-control" placeholder="タイトルや注目ポイントなど">
+          </div>
+        
           <%= form_for(board_order) do |f| %>
             <% if board_order.errors.any? %>
               <div id="error_explanation">
@@ -234,13 +241,11 @@
             <div style="margin :10px 0 0 0;">
               <table>
                 <tr class="field">
-                  <th align="left"><%= f.label :memo %></th>
-                  <td align="left"><%= f.text_area :message, cols:40, rows:3 %></td>
+                  <td><%= f.hidden_field :message, :value => '' %></td>
                 </tr>
 
                 <tr class="field">
-                  <th align="left"><%= f.label :user %></th>
-                  <td align="left"><%=@board_user.nickname %><%=f.hidden_field :boarduser_id %></td>
+                  <%=f.hidden_field :boarduser_id %>
                 </tr>
 
                 <tr class="field">
@@ -447,12 +452,13 @@
           function onButtonClickFielder() {
             fillCanvas();
             $('#board_order_category_code').val(1);
+            var messageH = $('#messageH').val();
             var jpeg = canvas.toDataURL("image/jpeg");
             var formData = new FormData(document.forms.form);
-            var blob = Base64toBlob(jpeg);
-            console.log(URL.createObjectURL(blob));
             formData.append("image", jpeg);
+            formData.append("message", messageH);
             $('#board_order_image').val(formData.get('image').replace(/^.*,/, ''));
+            $('#board_order_message').val(formData.get('message'));
             $("#new_board_order").submit();
           }
                   // canvas上のイメージを保存
@@ -638,6 +644,12 @@
             </td>
           </form>
         </div>
+        <br>
+        
+        <div class="form-group">
+            <label for="text1">Text:</label>
+            <input type="text" id="messageP" class="form-control" placeholder="タイトルや注目ポイントなど">
+        </div>
         <%= form_for(board_order) do |f| %>
             <% if board_order.errors.any? %>
               <div id="error_explanation">
@@ -653,15 +665,13 @@
             <div style="margin :10px 0 0 0;">
               <table>
                 <tr class="field">
-                  <th align="left"><%= f.label :memo %></th>
-                  <td align="left"><%= f.text_area :message, cols:40, rows:3 %></td>
+                  <td><%= f.hidden_field :message, :value => '' %></td>
                 </tr>
-
+            
                 <tr class="field">
-                  <th align="left"><%= f.label :user %></th>
-                  <td align="left"><%=@board_user.nickname %><%=f.hidden_field :boarduser_id %></td>
+                  <%=f.hidden_field :boarduser_id %>
                 </tr>
-
+            
                 <tr class="field">
                   <td><%= f.hidden_field :image, :value => '' %></td>
                 </tr>
@@ -674,7 +684,7 @@
             </div>
             <% end %>
             <input type="button" value="プレビュー" onclick="onButtonClickPreviewPitcher()" class="btn btn-primary" />
-            <input type="button" value="作成" onclick="onButtonClickPitcher()" class="btn btn-primary" />
+            <input type="button" value="投稿" onclick="onButtonClickPitcher()" class="btn btn-primary" />
 
             <input type="button" value="保存" onclick="saveCanvasPitcher('jpeg');" id="pitcher_save_button" class="btn btn-primary" style="margin: 10px 0 0 0;" />
             </tr>
@@ -862,13 +872,16 @@
           function onButtonClickPitcher() {
 
             fillCanvasPitcher();
+            var messageP = $('#messageP').val();
             $('#board_order_category_code').val(2);
             var jpeg2 = canvas2.toDataURL("image/jpeg");
             var formData = new FormData(document.forms.form);
             //var blob = Base64toBlob(jpeg2);
             //console.log(URL.createObjectURL(blob));
             formData.append("image", jpeg2);
+            formData.append("message", messageP);
             $('#board_order_image').val(formData.get('image').replace(/^.*,/, ''));
+            $('#board_order_message').val(formData.get('message'));
             $("#new_board_order").submit();
           }
 
